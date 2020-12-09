@@ -32,31 +32,26 @@ class Nyx_File_Parse_Utils:
                 temp = []
                 file_extension = []
                 root_list = []
-                counter = 1
-                i = 1
-                for file in files:
-                    os.path.splitext(file)
-                    if file not in file_name:  # add file to table file_name
-                        file_name.append(file)
-                        if file not in temp:  # temp = table
-                            filename, extension = os.path.splitext(file)
-                            if extension not in file_extension:  # add file_exc to table file_extension
-                                file_extension.append(extension)
-                                for roots in dirs, root:
-                                    if roots not in root_list:
-                                        root_list.append(roots)
-                                        counter = i + 1
-                print("Dir number: " +
-                      str(counter) + "\n" +
-                      "Found in dir: " +
-                      "\n --- \n" +
-                      str(root_list) +
-                      "The following file extensions: " +
-                      "\n --- \n" +
-                      str(file_extension) +
-                      "The following files: " +
-                      "\n --- \n" +
-                      str(file_name) + "\n")
+                counter = 0
+                i = 0
+                for roots in dirs, root:
+                    if roots not in root_list:
+                        root_list.append(roots)
+                        counter = i + 1
+                        for file in files:
+                            os.path.splitext(file)
+                            if file not in file_name:  # add file to table file_name
+                                file_name.append(file)
+                                if file not in temp:  # temp = table
+                                    filename, extension = os.path.splitext(file)
+                                    if extension not in file_extension:  # add file_exc to table file_extension
+                                        file_extension.append(extension)
+                print("\nFound in dir number '" + str(counter) + "':\n" +
+                      str(root_list[1]) +
+                      "\nThe following files: \n" +
+                      str(file_name) +
+                      "\nAnd the following file extensions: \n" +
+                      str(file_extension))
         except Exception():
             raise Exception("The directory path is invalid!")
 
@@ -122,7 +117,7 @@ if __name__ == "__main__":
     # vars:
     error_list1 = ['errors', 'file', 'error', '']
     error1 = 'errors'
-    filepath1 = r"C:\Users\shoog\Documents\Python work\Python work\Python\Browse txt"
+    filepath1 = r"C:\Users\shoog\Documents\Python work\Python work 12.8\Python\Browse txt\.pytest_cache"
     filename1 = "build_log_nrf52_ble_s112_10040_boot.txt"
     filetype1 = "*.txt"
     filepath2 = r"C:\Users\shoog\PycharmProjects\Jian\build_log_nrf52_ble_s112_10040_boot.txt"
