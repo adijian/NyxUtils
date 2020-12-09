@@ -105,4 +105,4 @@ if __name__ == "__main__":
     # filepath2 = Nyx_File_Parse_Utils.open_file(filepath2)
     # Nyx_File_Parse_Utils.find_word_in_txt(filepath2, error1)
     # Nyx_File_Parse_Utils.find_word_list_in_txt(filepath2, error_list1)
-    Nyx_File_Parse_Utils.return_all_files_in_dir2(filepath1)
+    Nyx_File_Parse_Utils.return_all_files_in_dir(filepath1)
