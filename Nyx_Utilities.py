@@ -25,6 +25,34 @@ class Nyx_File_Parse_Utils:
             raise Exception("The directory path is invalid!")
 
     @staticmethod
+    def return_all_files_in_dir2(filepath):
+        # try:
+        for root, dirs, files in os.walk(filepath):
+            file_name = []
+            temp = []
+            file_extension = []
+            root_list = []
+            for file in files:
+                os.path.splitext(file)
+                if file not in file_name:  # file_name = table
+                    file_name.append(file)
+                    if file not in temp:  # temp = table
+                        # temp.append(file[-4::1])
+                        filename, fileextension = os.path.splitext(file)
+                        if fileextension not in file_extension:
+                            file_extension.append(fileextension)
+                            for root in dirs, root:
+                                if root not in root_list:
+                                    root_list.append(root)
+            print("Found in dir: " +
+                  "\n" + str(root_list) + "\n" +
+                  "The following file extensions: "
+                  "\n" + str(file_extension))
+            print("\n Found the following files: \n" + str(file_name))
+        # except Exception():
+        #     raise Exception("The directory path is invalid!")
+
+    @staticmethod
     def check_if_path_exists(filepath):
         if not os.path.exists(filepath):
             raise Exception("Path doesn't exists!")
@@ -33,9 +61,12 @@ class Nyx_File_Parse_Utils:
 
     @staticmethod
     def open_file(filepath):
-        file = open(filepath, "r")  # get file object reference to the file
-        file_data = file.read()  # read content of file to string
-        return file_data
+        try:
+            file = open(filepath, "r")  # get file object reference to the file
+            file_data = file.read()  # read content of file to string
+            return file_data
+        except Exception():
+            raise Exception("Failed to open file!")
 
     @staticmethod
     def find_word_in_txt(filepath, word):
@@ -79,15 +110,16 @@ class Nyx_File_Parse_Utils:
             raise Exception("Could not find file by path.")
 
 
-# if __name__ == "__main__":
-#     # vars:
-#     error_list1 = ['errors', 'file', 'error', '']
-#     error1 = 'errors'
-#     filepath1 = r"C:\Users\shoog\Documents\Python work\Python work\Python\Browse txt"
-#     filename1 = "build_log_nrf52_ble_s112_10040_boot.txt"
-#     filetype1 = "*.txt"
-#     filepath2 = r"C:\Users\shoog\PycharmProjects\Jian\build_log_nrf52_ble_s112_10040_boot.txt"
-#     # functions:
-#     filepath2 = Nyx_File_Parse_Utils.open_file(filepath2)
-#     # Nyx_File_Parse_Utils.find_word_in_txt(filepath2, error1)
-#     Nyx_File_Parse_Utils.find_word_list_in_txt(filepath2, error_list1)
+if __name__ == "__main__":
+    # vars:
+    error_list1 = ['errors', 'file', 'error', '']
+    error1 = 'errors'
+    filepath1 = r"C:\Users\shoog\Documents\Python work\Python work\Python\Browse txt"
+    filename1 = "build_log_nrf52_ble_s112_10040_boot.txt"
+    filetype1 = "*.txt"
+    filepath2 = r"C:\Users\shoog\PycharmProjects\Jian\build_log_nrf52_ble_s112_10040_boot.txt"
+    # functions:
+    # filepath2 = Nyx_File_Parse_Utils.open_file(filepath2)
+    # Nyx_File_Parse_Utils.find_word_in_txt(filepath2, error1)
+    # Nyx_File_Parse_Utils.find_word_list_in_txt(filepath2, error_list1)
+    Nyx_File_Parse_Utils.return_all_files_in_dir2(filepath1)
