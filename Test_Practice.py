@@ -12,9 +12,11 @@ def open_file():
 
 
 def test_open_file_and_check_if_exists(open_file):
+    # check if file exists = true
     assert nyx.check_if_path_exists(filepath2)
 
 
 @pytest.mark.xfail(strict=True)
 def test_fail_to_check_if_file_exists(open_file):
+    # fail checking file exists on purpose
     assert not (nyx.check_if_path_exists(filepath3))
