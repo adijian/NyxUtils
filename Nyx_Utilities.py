@@ -11,32 +11,12 @@ class Nyx_File_Parse_Utils:
                 file_name = []
                 temp = []
                 file_extension = []
-                for file in files:
-                    os.path.splitext(file)
-                    if file not in file_name:
-                        file_name.append(file)
-                        if file not in temp:
-                            temp.append(file[-4::1])
-                            if file[-4::1] not in file_extension:
-                                file_extension.append(file[-4::1])
-                print("Error - found the following file extensions: \n" + str(file_extension))
-                print("\n Error - found the following files: \n" + str(file_name))
-        except Exception():
-            raise Exception("The directory path is invalid!")
-
-    @staticmethod
-    def return_all_files_in_dir2(filepath):
-        try:
-            for root, dirs, files in os.walk(filepath):
-                file_name = []
-                temp = []
-                file_extension = []
                 root_list = []
                 counter = 0
                 i = 0
                 for roots in dirs, root:
                     if roots not in root_list:
-                        root_list.append(roots) # add root path to table root_list
+                        root_list.append(roots)  # add root path to table root_list
                         counter = i + 1
                         for file in files:
                             os.path.splitext(file)
