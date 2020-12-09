@@ -26,31 +26,39 @@ class Nyx_File_Parse_Utils:
 
     @staticmethod
     def return_all_files_in_dir2(filepath):
-        # try:
-        for root, dirs, files in os.walk(filepath):
-            file_name = []
-            temp = []
-            file_extension = []
-            root_list = []
-            for file in files:
-                os.path.splitext(file)
-                if file not in file_name:  # file_name = table
-                    file_name.append(file)
-                    if file not in temp:  # temp = table
-                        # temp.append(file[-4::1])
-                        filename, fileextension = os.path.splitext(file)
-                        if fileextension not in file_extension:
-                            file_extension.append(fileextension)
-                            for root in dirs, root:
-                                if root not in root_list:
-                                    root_list.append(root)
-            print("Found in dir: " +
-                  "\n" + str(root_list) + "\n" +
-                  "The following file extensions: "
-                  "\n" + str(file_extension))
-            print("\n Found the following files: \n" + str(file_name))
-        # except Exception():
-        #     raise Exception("The directory path is invalid!")
+        try:
+            for root, dirs, files in os.walk(filepath):
+                file_name = []
+                temp = []
+                file_extension = []
+                root_list = []
+                counter = 1
+                i = 1
+                for file in files:
+                    os.path.splitext(file)
+                    if file not in file_name:  # add file to table file_name
+                        file_name.append(file)
+                        if file not in temp:  # temp = table
+                            filename, extension = os.path.splitext(file)
+                            if extension not in file_extension:  # add file_exc to table file_extension
+                                file_extension.append(extension)
+                                for roots in dirs, root:
+                                    if roots not in root_list:
+                                        root_list.append(roots)
+                                        counter = i + 1
+                print("Dir number: " +
+                      str(counter) + "\n" +
+                      "Found in dir: " +
+                      "\n --- \n" +
+                      str(root_list) +
+                      "The following file extensions: " +
+                      "\n --- \n" +
+                      str(file_extension) +
+                      "The following files: " +
+                      "\n --- \n" +
+                      str(file_name) + "\n")
+        except Exception():
+            raise Exception("The directory path is invalid!")
 
     @staticmethod
     def check_if_path_exists(filepath):
