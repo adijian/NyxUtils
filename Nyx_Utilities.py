@@ -36,7 +36,7 @@ class Nyx_File_Parse_Utils:
                 i = 0
                 for roots in dirs, root:
                     if roots not in root_list:
-                        root_list.append(roots)
+                        root_list.append(roots) # add root path to table root_list
                         counter = i + 1
                         for file in files:
                             os.path.splitext(file)
