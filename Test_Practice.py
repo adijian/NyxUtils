@@ -6,8 +6,8 @@ filepath3 = r"C:\Users\shoog\Documents\Python work\Python work 12.8\Python\Brows
 
 
 @pytest.fixture()
-# set-up function - open file
 def open_file():
+    # set-up function - open file
     nyx.open_file(filepath2)
 
 
