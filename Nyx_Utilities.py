@@ -56,7 +56,8 @@ class Nyx_File_Parse_Utils:
         try:
             # count occurrences of single word and and lower+strip
             occurrences = filepath.strip().lower().count(word)
-            print("Word count for " + "'" + str(word) + "'" + ": " + str(occurrences))
+            return occurrences
+            # print("Word count for " + "'" + str(word) + "'" + ": " + str(occurrences))
         except Exception():
             raise Exception("Word couldn't be found in file.")
 
@@ -66,7 +67,8 @@ class Nyx_File_Parse_Utils:
             # count occurrences of every word in list and lower+strip
             for word in word_list:
                 occurrences = filepath.strip().lower().count(word)
-                print("Errors count for " + "'" + str(word) + "'" + ": " + str(occurrences))
+                return occurrences
+                # print("Errors count for " + "'" + str(word) + "'" + ": " + str(occurrences))
         except Exception():
             raise Exception("Words couldn't be found in file.")
 
@@ -104,5 +106,5 @@ if __name__ == "__main__":
     # functions:
     # filepath2 = Nyx_File_Parse_Utils.open_file(filepath2)
     # Nyx_File_Parse_Utils.find_word_in_txt(filepath2, error1)
-    # Nyx_File_Parse_Utils.find_word_list_in_txt(filepath2, error_list1)
-    Nyx_File_Parse_Utils.return_all_files_in_dir(filepath1)
+    Nyx_File_Parse_Utils.find_word_list_in_txt(filepath2, error_list1)
+    # Nyx_File_Parse_Utils.return_all_files_in_dir(filepath1)
