@@ -54,7 +54,3 @@ def test_find_last_modified_between_two_files():
 def test_find_file_by_dir():
     nyx.find_file_by_dir(filepath_3_files, filetype1)
     assert nyx.check_if_path_exists(filepath_3_files)  # find true to pass
-
-
-def test_calc():
-    assert nyx.calc(1) > 0
