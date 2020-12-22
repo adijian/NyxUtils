@@ -1,11 +1,11 @@
 from Nyx_Utilities import Nyx_File_Parse_Utils as nyx
 import pytest
 
-filepath_with_name = r"test_dirs/one file/build_log_nrf52_ble_s112_10040_boot.txt"
-filepath_wrong_name = r"test_dirs/one file/bu"
-word = ' '
-filepath_two_modified = r"test_dirs/two files modified at same time"
-filepath_3_files = r"test_dirs/3 files"
+filepath_with_name = r"test_dirs/tesT_one file/test_build_log_nrf52_ble_s112_10040_boot.txt"
+filepath_wrong_name = r"test_dirs/test_one file/bu"
+word = 'r'
+filepath_two_modified = r"test_dirs/test_two files modified at same time"
+filepath_3_files = r"test_dirs/test_3 files"
 filepath6 = r""
 filetype1 = '.txt'
 word_list = ('word', 'one', ' ')
